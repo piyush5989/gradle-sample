@@ -48,6 +48,6 @@ class AppTest {
         list.add(1);
         list.addFirst(0);
         list.addLast(2);
-        assertEquals("3", list.size());
+        assertEquals(3, list.size());
     }
 }
