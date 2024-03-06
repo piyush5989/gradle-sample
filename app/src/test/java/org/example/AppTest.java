@@ -30,9 +30,9 @@ class AppTest {
     }
 
     @Test
-    public void testJavaVersionFailed() {
+    public void testSpecificJavaVersion() {
         App classUnderTest = new App();
         List<Integer> integers = classUnderTest.getIntegers("21.0.2");
-        assertTrue(integers.size() == 4);
+        assertTrue(integers.size() == 3);
     }
 }
