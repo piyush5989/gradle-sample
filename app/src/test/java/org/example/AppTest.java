@@ -28,4 +28,11 @@ class AppTest {
             assertTrue(integers.size() == 1);
         }
     }
+
+    @Test
+    public void testJavaVersionFailed() {
+        App classUnderTest = new App();
+        List<Integer> integers = classUnderTest.getIntegers("21.0.2");
+        assertTrue(integers.size() == 4);
+    }
 }
