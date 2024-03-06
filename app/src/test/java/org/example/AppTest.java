@@ -5,10 +5,10 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test
@@ -34,5 +34,20 @@ class AppTest {
         App classUnderTest = new App();
         List<Integer> integers = classUnderTest.getIntegers("21.0.2");
         assertTrue(integers.size() == 3);
+    }
+
+    @Test
+    public void testStringRepeatJava11() {
+        String repeated = "abc".repeat(3);
+        assertEquals("abcabcabc", repeated);
+    }
+
+    @Test
+    public void testJava21() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.addFirst(0);
+        list.addLast(2);
+        assertEquals("3", list.size());
     }
 }
