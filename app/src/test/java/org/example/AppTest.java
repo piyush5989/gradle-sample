@@ -17,12 +17,15 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 
+    @Test
     public void testJavaVersion() {
         App classUnderTest = new App();
-        List<Integer> integers = classUnderTest.getIntegers("21.0.2");
-        assertTrue(integers.size() == 3);
-
-        integers = classUnderTest.getIntegers("1.8");
-        assertTrue(integers.size() == 1);
+        String javaVersion = System.getProperty("java.version");
+        List<Integer> integers = classUnderTest.getIntegers(javaVersion);
+        if (javaVersion.equalsIgnoreCase("21.0.2")) {
+            assertTrue(integers.size() == 3);
+        } else {
+            assertTrue(integers.size() == 1);
+        }
     }
 }
