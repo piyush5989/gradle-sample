@@ -3,6 +3,9 @@
  */
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +13,32 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        String javaVersion = System.getProperty("java.version");
+        System.out.println("Java version : " + javaVersion);
+
+        List<Integer> integers = new App().getIntegers(javaVersion);
+        System.out.println("List size: " + integers.size());
+    }
+
+    public List<Integer> getIntegers(String javaVersion) {
+        if (javaVersion.equalsIgnoreCase("21.0.2")) {
+            return java21Code();
+        } else {
+            return java8Code();
+        }
+    }
+
+    private List<Integer> java8Code() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        return list;
+    }
+
+    private static List<Integer> java21Code() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.addFirst(0);
+        list.addLast(2);
+        return list;
     }
 }
