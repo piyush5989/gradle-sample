@@ -6,20 +6,19 @@ pipeline {
     }
 
     stages {
+        stage('Test with Java 21') {
+                steps {
+                    script {
+                        env.PATH = "${env.JAVA_HOME_21}\\bin;${env.PATH}"
+                    }
+                    bat 'java -version'
+                    bat 'gradle clean test'
+                }
+            }
         stage('Test with Java 8') {
             steps {
                 script {
                     env.PATH = "${env.JAVA_HOME_8}\\bin;${env.PATH}"
-                }
-                bat 'java -version'
-                bat 'gradle clean test'
-            }
-        }
-
-        stage('Test with Java 21') {
-            steps {
-                script {
-                    env.PATH = "${env.JAVA_HOME_21}\\bin;${env.PATH}"
                 }
                 bat 'java -version'
                 bat 'gradle clean test'
